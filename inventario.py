@@ -15,20 +15,21 @@ while another_product == "yes":
         else:
             sales[product] ={"price": price,
                             "quantity": quantity}
+        #Here, each product is processed and its price is multiplied by the quantity. The result is added to the total cost.
         for product in sales:
             subtotal= sales[product]["price"] * sales[product]["quantity"]
             total_cost = subtotal+total_cost
         another_product=input("do you wanna add another product (yes/no): ").lower()
         print("")
-
+#This is a try-except block to handle the error when the user enters a non-numeric value for price or quantity.
     except ValueError:
-        print("pleasy,try again")
+        print("please, try again")
         continue
+#Finally, the summary of the products and the total cost is printed.
 print("SHOW SUMMARY")
 for product in sales:
     print("product:", product)
     print("price:",sales[product]["price"])
     print("quantity:",sales[product]["quantity"])
-    print("subtotal:",subtotal)
     print("----------------------------------------")
 print("total:", total_cost)
